@@ -1,0 +1,52 @@
+.mainLayout {
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 100vh;
+  padding: 0.5rem;
+}
+
+.mainLayout-header {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 5rem;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainLayout-header-nav {
+  /* border: 1px solid blue; */
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.mainLayout-header-nav1 {
+  /* border: 1px solid red; */
+  background-color: rgb(226, 241, 4);
+  width: 6rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+
+  display: block;
+}
+
+.mainLayout-header-conect {
+  /* border: 1px solid black; */
+  background-color: rgb(124, 124, 255);
+  border-radius: 0.5rem;
+
+  width: 6rem;
+  height: 2rem;
+}
+
+.mainLayout-content {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: calc(100vh - 6rem);
+}
