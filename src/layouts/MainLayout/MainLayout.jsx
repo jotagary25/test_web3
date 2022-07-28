@@ -1,23 +1,66 @@
 import { Link, Outlet } from "react-router-dom";
+import { useEffect, useCallback } from "react";
+import { useWeb3React } from "@web3-react/core";
 
 import "./MainLayout.css";
+import { connector } from "../../config/web3";
 
 const HeaderMainLayout = () => {
+  // Recursos para traer los datos del wallet
+  const {
+    active,
+    activate,
+    deactivate,
+    error,
+    account,
+    chainId,
+  } = useWeb3React();
+
+  // Metodo para conectar con la wallet
+  const connect = useCallback(() => {
+    activate(connector);
+    localStorage.setItem("previouslyConnected", true);
+  }, [activate]);
+
+  // useEffect para comprobar de primera instancia si estamos conectados
+  useEffect(() => {
+    if (localStorage.getItem("previouslyConnected") === "true") connect();
+  }, [connect]);
+
+  // Método para desconectar de la wallet
+  const disconnect = () => {
+    deactivate();
+    localStorage.removeItem("previouslyConnected");
+  };
+
+  // Log's for every variable
+  console.log(active);
+  console.log(error);
+  console.log(account);
+  console.log(chainId);
+
   return (
     <div className="mainLayout-header">
       <div className="mainLayout-header-nav">
-        <Link className="mainLayout-header-nav1" to={"/"}>
-          Inicio
+        <Link to={"/"}>
+          <button className="mainLayout-header-nav-button1">Inicio</button>
         </Link>
-        <Link className="mainLayout-header-nav1" to={"infouser"}>
-          Información
+        <Link to={"infouser"}>
+          <button className="mainLayout-header-nav-button1">Información</button>
         </Link>
-        <Link className="mainLayout-header-nav1" to={"buynft"}>
-          Comprar
+        <Link to={"buynft"}>
+          <button className="mainLayout-header-nav-button1">Comprar</button>
         </Link>
       </div>
-      <button className="mainLayout-header-conect">Conectar </button>
-      {/* <section></section> */}
+      {active ? (
+        <button className="mainLayout-header-nav-button2" onClick={disconnect}>
+          Disconnect
+        </button>
+      ) : (
+        <button className="mainLayout-header-nav-button2" onClick={connect}>
+          Connect
+        </button>
+      )}
     </div>
   );
 };

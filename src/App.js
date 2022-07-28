@@ -1,12 +1,14 @@
-import RoutesManager from "./config/RoutesManager";
+import { getLibrary } from "./config/web3";
+import { Web3ReactProvider } from "@web3-react/core";
 
 import "./App.css";
+import RoutesManager from "./config/RoutesManager";
 
 function App() {
   return (
-    <div>
+    <Web3ReactProvider getLibrary={getLibrary}>
       <RoutesManager></RoutesManager>
-    </div>
+    </Web3ReactProvider>
   );
 }
 
