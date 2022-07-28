@@ -29,7 +29,7 @@
 }
 /* BUTTONS OF NAVIGATION */
 .mainLayout-header-nav-button1 {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   background-color: rgb(226, 241, 4);
   width: 6rem;
   height: 2rem;
@@ -37,7 +37,7 @@
 }
 /* BUTTONS OF CONECCT */
 .mainLayout-header-nav-button2 {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   background-color: rgb(124, 124, 255);
   width: 6rem;
   height: 2rem;

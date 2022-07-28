@@ -1,9 +1,14 @@
 import { Link, Outlet } from "react-router-dom";
 import { useEffect, useCallback } from "react";
 import { useWeb3React } from "@web3-react/core";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./MainLayout.css";
 import { connector } from "../../config/web3";
+import {
+  setWallet,
+  unSetWallet,
+} from "../../redux/actionCreators/AuthActionCreator";
 
 const HeaderMainLayout = () => {
   // Recursos para traer los datos del wallet
@@ -16,10 +21,18 @@ const HeaderMainLayout = () => {
     chainId,
   } = useWeb3React();
 
+  // Constant for UseDispatch methods
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (account && chainId) {
+      dispatch(setWallet(account, chainId));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [account, chainId]);
+
   // Metodo para conectar con la wallet
   const connect = useCallback(() => {
     activate(connector);
-    localStorage.setItem("previouslyConnected", true);
   }, [activate]);
 
   // useEffect para comprobar de primera instancia si estamos conectados
@@ -30,14 +43,12 @@ const HeaderMainLayout = () => {
   // Método para desconectar de la wallet
   const disconnect = () => {
     deactivate();
+    dispatch(unSetWallet());
     localStorage.removeItem("previouslyConnected");
   };
 
   // Log's for every variable
   console.log(active);
-  console.log(error);
-  console.log(account);
-  console.log(chainId);
 
   return (
     <div className="mainLayout-header">
