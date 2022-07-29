@@ -1,6 +1,6 @@
 const fractionalNft = {
     address: {
-        8001:'0xea1754153fD8DC6654BBC85C0DCB245988Bc4C88',
+        80001:'0xea1754153fD8DC6654BBC85C0DCB245988Bc4C88'
     },
     abi: [
         {
