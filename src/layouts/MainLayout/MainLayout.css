@@ -1,52 +1,50 @@
 /* MAIN LAYOUT */
 .mainLayout {
   /* border: 1px solid blue; */
-  width: 100%;
-  height: 100vh;
-  padding: 0.5rem;
 }
 
 /* HEADER */
 .mainLayout-header {
   /* border: 1px solid red; */
-  width: 100%;
-  min-height: 5rem;
 
-  display: flex;
-  flex-flow: row wrap;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 /* NAVIGATION BAR */
 .mainLayout-header-nav {
   /* border: 1px solid blue; */
-  height: 100%;
 
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  gap: 1rem;
+  /* display: flex;
+  align-items: center; */
 }
 /* BUTTONS OF NAVIGATION */
 .mainLayout-header-nav-button1 {
   /* border: 1px solid blue; */
-  background-color: rgb(226, 241, 4);
+  /* background-color: rgb(226, 241, 4);
   width: 6rem;
   height: 2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem; */
 }
 /* BUTTONS OF CONECCT */
 .mainLayout-header-nav-button2 {
   /* border: 1px solid black; */
-  background-color: rgb(124, 124, 255);
+  /* background-color: rgb(124, 124, 255);
   width: 6rem;
   height: 2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem; */
 }
 
 /* CONTENT */
 .mainLayout-content {
   /* border: 1px solid black; */
-  width: 100%;
-  height: calc(100vh - 6rem);
+  /* width: 100%;
+  height: calc(100vh - 6rem); */
+}
+
+.mainLayout-header-bireLogo > svg {
+  /* border: 1px solid black; */
+  width: 6rem;
+  height: calc(6rem / 1.8);
+  /* aspect-ratio: 1 / 1; */
 }
