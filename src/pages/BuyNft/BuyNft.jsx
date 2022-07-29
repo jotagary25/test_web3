@@ -30,12 +30,11 @@ const BuyNft = () => {
         setStatus({
           title:'Transaction Sent',
           description: `Please wait... 
-                        Transaction Hash: ${<a href={`https://mumbai.polygonscan.com/tx/{txHash}`} target="_blank">{txHash}</a>}`,
+                        Transaction Hash: ${txHash}`,
           status:'info',
         })
       })
       .on("receipt", (tx) => {
-        console.log(true)
         setTokenId(tx.events.Transfer.returnValues.tokenId);
         setStatus({
           title:'Transaction confirmed',
