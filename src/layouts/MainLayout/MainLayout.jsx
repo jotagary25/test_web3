@@ -37,8 +37,8 @@ const HeaderMainLayout = () => {
 
   // Metodo para conectar con la wallet
   const connect = useCallback(() => {
-    setModalAccept(true);
-    // activate(connector);
+    // setModalAccept(true);
+    activate(connector);
   }, [activate]);
 
   // useEffect para comprobar de primera instancia si estamos conectados
